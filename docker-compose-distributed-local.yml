@@ -11,6 +11,7 @@ services:
     env_file:
       - ./hadoop.env
     ports:
+      - 9000:9000
       - 50070:50070
 
   datanode:
@@ -23,6 +24,8 @@ services:
     env_file:
       - ./hadoop.env
     ports:
+      - 50010:50010
+      - 50020:50020
       - 50075:50075
 
   resourcemanager:
@@ -67,7 +70,7 @@ services:
       - 2181:2181
 
   hbase-master:
-    image: bde2020/hbase-master:1.0.0-hbase1.2.6
+    image: bde2020/hbase-master:1.0.1-hbase1.2.6.1
     container_name: hbase-master
     hostname: hbase-master
     env_file:
@@ -78,7 +81,7 @@ services:
       - 16010:16010
 
   hbase-region:
-    image: bde2020/hbase-regionserver:1.0.0-hbase1.2.6
+    image: bde2020/hbase-regionserver:1.0.1-hbase1.2.6.1
     container_name: hbase-regionserver
     hostname: hbase-regionserver
     env_file:
